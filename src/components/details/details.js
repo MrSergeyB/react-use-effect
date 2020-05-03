@@ -1,10 +1,8 @@
 import React from "react";
 import "./details.css";
 
-const Details = ({loading, userInfo}) => {
-  if (!loading) {
-    return null;
-  } else {
+const Details = ({userInfo, dataLoaded}) => {
+  if (dataLoaded) {
     return (
       <ul className="userdetails-box">
         <li>
@@ -16,6 +14,8 @@ const Details = ({loading, userInfo}) => {
         <li>Position: {userInfo.data.details.position}</li>
       </ul>
     );
+  } else {
+    return null;
   }
 };
 
